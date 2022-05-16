@@ -1,16 +1,14 @@
 from datetime import datetime
-from numpy import array
 
 try:
-    fname = "basics/data/sorted.txt"
+    fname = "../basics/data/sorted.txt"
 
     with open(fname) as f:
-        # converting array datatype string to int using numpy
-        numbers = array(f.readlines()).astype(int)
 
-    starttime = datetime.now()
-    print("Heapsort random. Elements: ", len(numbers))
-    print("Start time: ", starttime)
+        numbers = []
+        for line in f:
+            num = int(line)
+            numbers.append(num)
 
     def heapify(arr, n, i):
         largest = i
@@ -37,6 +35,11 @@ try:
         for i in range(n - 1, 0, -1):
             arr[i], arr[0] = arr[0], arr[i]
             heapify(arr, i, 0)
+
+    starttime = datetime.now()
+
+    print("Heapsort sorted. Elements: ", len(numbers))
+    print("Start time: ", starttime)
 
     heapSort(numbers)
     n = len(numbers)

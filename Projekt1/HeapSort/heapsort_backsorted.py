@@ -1,15 +1,17 @@
 from datetime import datetime
-from numpy import array
 
 try:
-    fname = "basics/data/backsorted.txt"
+    fname = "../basics/data/backsorted.txt"
 
     with open(fname) as f:
-        # converting array datatype string to int using numpy
-        numbers = array(f.readlines()).astype(int)
+
+        numbers = []
+        for line in f:
+            num = int(line)
+            numbers.append(num)
 
     starttime = datetime.now()
-    print("Heapsort random. Elements: ", len(numbers))
+    print("Heapsort backsorted. Elements: ", len(numbers))
     print("Start time: ", starttime)
 
     def heapify(arr, n, i):

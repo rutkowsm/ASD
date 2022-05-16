@@ -1,5 +1,5 @@
 import random
-fname = "basics/data/random.txt"
+fname = "../basics/data/random.txt"
 
 i = 1
 
